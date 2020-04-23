@@ -1,0 +1,20 @@
+{
+    "item": {
+        "author": "",
+        "createdAt": -1,
+        "changes": []
+    },
+
+    "change": {
+        "author": "",
+        "timestamp": -1,
+        "patch": {},
+        "before": {}
+    },
+
+    "changelog": {
+        "author": "",
+        "action": "",
+        "data": null
+    }
+}

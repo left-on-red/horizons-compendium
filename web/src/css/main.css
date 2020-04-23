@@ -1,0 +1,21 @@
+nav.navbar.bg-dark {
+    background-color: #65b585 !important;
+}
+
+.jumbotron {
+    background-color: #9dcfb1;
+}
+
+div.menu {
+    background-color: #eee4ca;
+    padding: 50px;
+}
+
+div.menu div {
+    background-color: red;
+    width: 150px;
+}
+
+div.menu div img {
+    border: none;
+}
