@@ -5,13 +5,18 @@ npm-debug.log*
 
 node_modules/
 
-api/data/*
-api/history/*
+api/data/
+api/history/
 
 images/avatars/*
-images/clothing/*
-images/furniture/*
+images/clothing/catalog/*
+images/clothing/worn/*
+images/furniture/catalog/*
+images/furniture/customs/*
+images/furniture/placed/*
 images/temp/*
+
+!/**/.gitkeep
 
 auth.json
 server.crt
