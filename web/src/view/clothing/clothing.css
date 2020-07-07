@@ -1,0 +1,139 @@
+.hidden {
+    display: none;
+}
+
+.container {
+    margin-top: 10%;
+}
+
+.container .row .col, .container .row .col-7 {
+    text-align: center;
+}
+
+.container .row .col div .label {
+    display: inline-block;
+}
+
+#images {
+    margin-bottom: 20px;
+}
+
+#images div#colorSelect {
+    width: 100%;
+    background-color: var(--primary);
+    border-radius: 50px;
+    padding: 7px;
+    margin-bottom: 3px;
+    position: relative;
+}
+
+#images div#colorSelect p {
+    display: inline-block;
+    margin: 0;
+}
+
+#images div#colorSelect i {
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    padding: 8px;
+    height: 30px;
+    width: 30px;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: absolute;
+    top: 10%;
+}
+
+#images div#colorSelect i:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#images div#colorSelect i.fa-chevron-left {
+    left: 5px;
+}
+
+#images div#colorSelect i.fa-chevron-right {
+    right: 5px;
+}
+
+#images div#catalogImage, #images div#wornImage {
+    display: inline-block;
+    width: 216px;
+    height: 320px;
+    position: relative;
+}
+
+#images div#catalogImage a, #images div#wornImage a {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.3s;
+    cursor: pointer;
+    color: #fff;
+    padding-top: 70%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#images div#catalogImage img, #images div#wornImage img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#images div#catalogImage img.hidden, #images div#wornImage img.hidden {
+    display: none;
+}
+
+#images div#catalogImage p, #images div#wornImage p {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.custom-control {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.custom-control-label {
+    display: inline-block;
+    width: 100%;
+}
+
+#cataloggable {
+    display: none;
+}
+
+#fieldData {
+    background-color: var(--secondary);
+    padding: 10px;
+    border-radius: 10px;
+    filter: brightness(110%);
+}
+
+#fieldData div {
+    display: inline-block;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px 40px 10px 40px;
+}
+
+#fieldData div p {
+    font-weight: 500;
+    display: inline;
+}
+
+#fieldData div p.data {
+    font-weight: 450;
+}

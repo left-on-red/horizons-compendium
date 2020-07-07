@@ -1,0 +1,58 @@
+nav.navbar {
+    background-color: var(--primary-dark) !important;
+}
+
+.dropdown-menu {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.dropdown-menu .dropdown-item {
+    transition: all 0.3s;
+    color: #fff;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: var(--primary-hover);
+}
+
+.dropdown-menu .dropdown-item:active {
+    background-color: var(--primary-active);
+}
+
+.nav-link i {
+    font-size: 26px;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+.container a {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 15px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.container a:hover {
+    filter: brightness(90%);
+}
+
+.container a:active {
+    filter: brightness(80%);
+}
+
+.container a .card {
+    width: 12rem;
+    background-color: var(--secondary);
+}
+
+.container a .card .card-title {
+    text-align: center;
+    margin: 0;
+    font-size: 14px;
+}

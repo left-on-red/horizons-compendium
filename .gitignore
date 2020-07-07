@@ -8,4 +8,11 @@ node_modules/
 api/data/*
 api/history/*
 
+images/avatars/*
+images/clothing/*
+images/furniture/*
+images/temp/*
+
 auth.json
+server.crt
+server.key

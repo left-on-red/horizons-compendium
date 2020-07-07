@@ -1,0 +1,13 @@
+:root {
+    --primary: #9dcfb1;
+    --primary-hover: #8ebda0;
+    --primary-active: #80aa90;
+    --primary-dark: #548567;
+    --primary-disabled: #d5f1e0;
+
+    --secondary: #e2d5c3;
+    --secondary-hover: #cfc4b4;
+
+    --error: #eb7575;
+    --error-bg: #f5d8d8;
+}

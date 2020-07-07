@@ -4,10 +4,19 @@ let crypto = require('crypto');
 
 // initializing data
 
+let imageSchemes = {
+    clothing: [
+        'catalog',
+        'worn'
+    ]
+}
+
 let defaultsFolder = fs.readdirSync('./api/defaults');
 let dataFolder = fs.readdirSync('./api/data');
 let historyFolder = fs.readdirSync('./api/history');
 let validationsFolder = fs.readdirSync('./api/validations');
+
+let colors = [];
 
 // defaults
 for (let f = 0; f < defaultsFolder.length; f++) {
@@ -31,11 +40,12 @@ for (let h = 0; h < historyFolder.length; h++) {
 // validations
 for (let v = 0; v < validationsFolder.length; v++) {
     validations[validationsFolder[v].split('.js')[0]] = require(`./validations/${validationsFolder[v]}`);
+
 }
 
 // colors (clothing)
 for (let c in data.clothing) {
-    for (let i = 0; i < data.clothing[c].colors; i++) {
+    for (let i = 0; i < data.clothing[c].colors.length; i++) {
         if (!colors.includes(data.clothing[c].colors[i])) { colors.push(data.clothing[c].colors[i]) }
     }
 }
@@ -47,25 +57,16 @@ module.exports = function(app) {
 
             let length = 10;
             let offset = 0;
-            let mode = 'list';
             let search = '';
 
             if (query.length) { if (!isNaN(query.length)) { length = parseInt(query.length) } }
             if (query.offset) { if (!isNaN(query.offset)) { offset = parseInt(query.offset) } }
-            if (query.mode) { mode = query.mode }
             if (query.search) { search = query.search }
-
 
             let arr = [];
             
-            if (mode == 'list') {
-                for (let f in data[d]) { arr.push(f) }
-                arr = arr.filter(str => str.startsWith(search.toLowerCase().split(' ').join('')));
-            }
-            else if (mode == 'data') {
-                for (let f in data[d]) { arr.push(data[d][f]) }
-                if (search != '') { arr = arr.filter(obj => obj.name.startsWith(search.toLowerCase().split(' ').join('').startsWith(search.toLowerCase().split(' ').join('')))) }
-            }
+            for (let f in data[d]) { arr.push(data[d][f]) }
+            if (search != '') { arr = arr.filter(obj => obj.name.startsWith(search.toLowerCase().split(' ').join('').startsWith(search.toLowerCase().split(' ').join('')))) }
 
             arr = arr.slice(offset, offset + length);
             response.json(arr);
@@ -89,6 +90,10 @@ module.exports = function(app) {
 
                         arr.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1);
                         response.json(arr);
+                    }
+
+                    else if (d == 'clothing' && request.params[0] == 'colors') {
+                        response.json(colors);
                     }
 
                     else { return response.sendStatus(404) }
@@ -132,7 +137,7 @@ module.exports = function(app) {
                             }
     
                             
-                            change.author = auth;
+                            change.author = auths[auth].id;
                             change.timestamp = Date.now();
                             change.patch = request.body.data;
     
@@ -157,6 +162,7 @@ module.exports = function(app) {
 
         app.post(`/api/${d}`, function(request, response) {
             let auth = '';
+
             if (request.body.token) { auth = request.body.token }
 
             if (auths[auth] && !auths[auth].startup) {
@@ -196,18 +202,21 @@ module.exports = function(app) {
                                 history[d][key].createdAt = Date.now();
                                 data[d][key] = obj;
 
-                                //let change = JSON.parse(JSON.stringify(defaults.history.changelog));
-
-                                response.sendStatus(201);
-
                                 fs.writeFileSync(`./api/data/${d}/${key}.json`, JSON.stringify(obj, null, 4), 'utf8');
                                 fs.writeFileSync(`./api/history/${d}.json`, JSON.stringify(history[d], null, 4), 'utf8');
 
-                                if (data[d].color) {
-                                    data[d].color = data[d].color.toLowerCase();
-                                    if (!colors.includes(data[d].color)) {
-                                        colors.push(data[d].color);
-                                        colors.sort();
+                                let assets = imageSchemes[d];
+                                for (let i = 0; i < assets.length; i++) { fs.mkdirSync(`./images/${d}/${assets[i]}/${key}`) }
+
+                                response.sendStatus(201);
+
+                                if (obj.colors) {
+                                    for (let c = 0; c < obj.colors.length; c++) {
+                                        let color = obj.colors[c].toLowerCase();
+                                        if (!colors.includes(color)) {
+                                            colors.push(color);
+                                            colors.sort();
+                                        }
                                     }
                                 }
 
@@ -265,7 +274,7 @@ module.exports = function(app) {
         if (auths[auth] && auths[auth].master) {
             crypto.randomBytes(32, function(error, buffer) {
                 if (error) { return response.sendStatus(500) }
-                let token = buffer.toString('base64');
+                let token = buffer.toString('hex');
 
                 auths[token] = {
                     id: null,
@@ -283,6 +292,21 @@ module.exports = function(app) {
         else { return response.sendStatus(401) }
     });
 
+    app.get('/api/auth/validate', function(request, response) {
+        let token = '';
+        if (request.query.token) { token = request.query.token }
+
+        if (token != '') {
+            for (let a in auths) {
+                if (token == a) { return response.json(auths[a]) }
+            }
+
+            return response.sendStatus(404);
+        }
+
+        else { return response.sendStatus(400) }
+    });
+
     app.post('/api/auth/init', function(request, response) {
         let auth = '';
         let username = '';
@@ -291,6 +315,7 @@ module.exports = function(app) {
 
         if (auths[auth] && auths[auth].startup) {
             if (username != '') {
+                for (a in auths) { if (auths[a].name == username) { return response.sendStatus(409) } }
                 crypto.randomBytes(16, function(error, buffer) {
                     if (error) { return response.sendStatus(500) }
                     let id = buffer.toString('hex');
@@ -313,13 +338,18 @@ module.exports = function(app) {
     app.patch('/api/auth/username', function(request, response) {
         let auth = '';
         let username = '';
+
         if (request.body.token) { auth = request.body.token }
-        if (request.body.username) { auth = request.body.username }
+        if (request.body.username) { username = request.body.username }
 
         if (auths[auth] && !auths[auth].startup) {
             if (username != '') {
-                if (auths[auth].username != username) {
-                    auths[auth].username = username;
+                for (a in auths) {
+                    if (auths[a].name == username) { return response.sendStatus(409) }
+                }
+
+                if (auths[auth].name != username) {
+                    auths[auth].name = username;
                     response.sendStatus(200);
 
                     fs.writeFileSync(`./api/auth.json`, JSON.stringify(auths, null, 4), 'utf8');

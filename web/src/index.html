@@ -5,97 +5,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horizons Compendium</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <script defer src="fa/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link rel="stylesheet" type="text/css" href="landing/landing.css">
+    <script src="https://kit.fontawesome.com/53f17480e1.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
-    <!--
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">
-            <img class="d-md-none" src="leaf.svg" width="50" height="50">
-            <p class="d-none d-md-inline">Horizons Compendium</p>
-        </a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbar">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-            
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-            
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fab fa-discord"></i> Discord</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fab fa-patreon"></i> Patreon</a>
-                </li>
-            </ul>
-        </div>
-    </nav> -->
-
-      <main role="main">
+    <main role="main">
 
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
-          <div class="container">
-            <h3>Welcome to the</h3><h1 class="display-3">Horizons Compendium</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
-          </div>
+            <a id="settingsIcon" href="settings/">
+                <i class="fas fa-cog"></i>
+            </a>
+
+            <a id="logoutIcon" href="logout/">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+
+            <div class="container">
+                <h3>Welcome to The</h3><h1 class="display-3">Horizons Compendium</h1>
+                <p>The Ultimate Animal Crossing: New Horizons Wiki.</p>
+            </div>
         </div>
+
+        <ul class="nav justify-content-center">
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-discord"></i> Discord</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-patreon"></i> Patreon</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-book"></i> Documentation</a></li>
+        </ul>
       
-        <div class="container">
+        <div class="container content">
           <!-- Example row of columns -->
 
-          <div class="row">
-              <div class="col-lg-4 menu">
-                  <div>
-                    <img src="150.png" class="img-fluid img-thumbnail">
-                  </div>
-              </div>
-              
-              <div class="col-lg-4 menu">
-                <div>
-                    <img src="150.png" class="img-fluid img-thumbnail">
-                  </div>
-              </div>
+            <div class="row">
+                <div class="col-sm wip">
+                    <a href="#">
+                        <span class="title">Wallpaper</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
 
-              <div class="col-lg-4 menu">
-                <div>
-                    <img src="150.png" class="img-fluid img-thumbnail">
-                  </div>
-              </div>
-          </div>
+                <div class="col-sm wip">
+                    <a href="#">
+                        <span class="title">Flooring</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+
+                <div class="col-sm wip">
+                    <a href="#">
+                        <span class="title">Rugs</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md">
+                    <a href="list/clothing">
+                        <span class="title">Clothing</span>
+                        <!-- <span class="stat">WIP</span> -->
+                        <p class="description">get a list of all the available clothing ranging from tops, bottoms, hats, and more</p>
+                    </a>
+                </div>
+
+                <div class="col-md wip">
+                    <a href="#">
+                        <span class="title">Furniture</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+
+                <div class="col-md wip">
+                    <a href="#">
+                        <span class="title">Recipes</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+
+                <div class="col-md wip">
+                    <a href="#">
+                        <span class="title">Customization</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm wip">
+                    <a href="#">
+                        <span class="title">Events</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+
+                <div class="col-sm wip">
+                    <a href="#">
+                        <span class="title">Shops</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+
+                <div class="col-sm wip">
+                    <a href="#">
+                        <span class="title">Villagers</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md wip">
+                    <a href="#">
+                        <span class="title">Fish</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+
+                <div class="col-md wip">
+                    <a href="#">
+                        <span class="title">Bugs</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+
+                <div class="col-md wip">
+                    <a href="#">
+                        <span class="title">Art</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+
+                <div class="col-md wip">
+                    <a href="#">
+                        <span class="title">Fossils</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm wip">
+                    <a href="#">
+                        <span class="title">Tools</span>
+                        <span class="stat" id="tool-stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+
+                <div class="col-sm wip">
+                    <a href="#">
+                        <span class="title">Wands</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+
+                <div class="col-sm wip">
+                    <a href="#">
+                        <span class="title">Materials</span>
+                        <span class="stat">WIP</span>
+                        <p class="description">to be implemented</p>
+                    </a>
+                </div>
+            </div>
       
         </div> <!-- /container -->
-      
+
       </main>
+
+      <footer>
+          <!-- made with <i class="fas fa-heart"></i> by red;
+          <br> -->
+          <i><a href="token/">authorize via token here</a></i>
+        </footer>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="landing/landing.js"></script>
 </html>

@@ -1,0 +1,31 @@
+div#displayContainer {
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    transition: all 0.45s;
+    text-align: center;
+}
+
+div#displayContainer p {
+    font-size: 32px;
+    margin: 0;
+}
+
+div#displayContainer div#progressBG {
+    width: 50%;
+    height: 3px;
+    background-color: transparent;
+    display: inline-block;
+}
+
+div#displayContainer div#progressBG div#progressFG {
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: width 3s ease-in-out;
+}
+
+div#displayContainer #progressBG div#progressFG.active {
+    width: 100%;
+}

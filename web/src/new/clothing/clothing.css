@@ -1,0 +1,386 @@
+.hidden {
+    display: none;
+}
+
+.container {
+    margin-top: 10%;
+}
+
+.container .row .col, .container .row .col-7 {
+    text-align: center;
+}
+
+.container .row .col div .label {
+    display: inline-block;
+}
+
+#images {
+    margin-bottom: 20px;
+}
+
+#images div#colorSelect {
+    width: 100%;
+    background-color: var(--primary);
+    border-radius: 50px;
+    padding: 7px;
+    margin-bottom: 3px;
+    position: relative;
+}
+
+#images div#colorSelect p {
+    display: inline-block;
+    margin: 0;
+}
+
+#images div#colorSelect i {
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    padding: 8px;
+    height: 30px;
+    width: 30px;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: absolute;
+    top: 10%;
+}
+
+#images div#colorSelect i:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#images div#colorSelect i.fa-chevron-left {
+    left: 5px;
+}
+
+#images div#colorSelect i.fa-chevron-right {
+    right: 5px;
+}
+
+#images div#catalogImage, #images div#wornImage {
+    display: inline-block;
+    width: 216px;
+    height: 320px;
+    position: relative;
+}
+
+#images div#catalogImage a, #images div#wornImage a {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.3s;
+    cursor: pointer;
+    color: #fff;
+    padding-top: 70%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#images div#catalogImage.disabled a, #images div#wornImage.disabled a {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: transparent;
+    opacity: 1;
+    cursor: default;
+}
+
+#images div#catalogImage:hover a, #images div#wornImage:hover a {
+    opacity: 1;
+}
+
+#images div#catalogImage img, #images div#wornImage img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#images div#catalogImage img.hidden, #images div#wornImage img.hidden {
+    display: none;
+}
+
+#images div#catalogImage p, #images div#wornImage p {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#images div#catalogImage.disabled p, #images div#wornImage.disabled p {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+#images div#catalogImage:hover p, #images div#wornImage:hover p {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#images div#catalogImage.disabled:hover p, #images div#wornImage.disabled:hover p {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+input {
+    background-color: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #CCC;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    font-size: 20px;
+    transition: all 0.2s;
+    padding: 10px 10px 5px 10px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #8a827f;
+}
+
+button:focus {
+    outline: none;
+}
+
+.custom-control {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.custom-control-label {
+    display: inline-block;
+    width: 100%;
+}
+
+#cataloggable {
+    display: none;
+}
+
+#colors {
+    width: 70%;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.025);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+#colors input {
+    width: 100%;
+}
+
+#colors ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow: auto;
+    position: relative;
+}
+
+#colors ul li {
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.050);
+}
+
+#colors ul li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#colors ul li.selected {
+    background-color: var(--primary);
+}
+
+#colors ul li:first-child, #colors ul li:last-child {
+    border: none;
+}
+
+#colors ul li#addColorButton {
+    background-color: #9499c2;
+    color: #fff;
+}
+
+#colors ul li#addColorButton:hover {
+    background-color: #8388ad;
+}
+
+#typeDropdownButton {
+    width: 170px;
+    padding: 10px 0 10px 0;
+    color: var(--primary-dark);
+    border: none;
+    border-bottom: 2px solid var(--primary-dark);
+    border-radius: 0px;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+
+#typeDropdownButton:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+
+#typeDropdownButton:after {
+    position: absolute;
+    right: 10%;
+    top: 45%;
+}
+
+#typeDropdown a {
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+#typeDropdown a:hover {
+    background-color: rgba(0, 0, 0, 0.025);
+}
+
+#typeDropdown a:active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#colorsInput {
+    width: 25%;
+    display: inline-block;
+}
+
+input.error {
+    border-color: var(--error);
+    background-color: var(--error-bg);
+}
+
+input.error::placeholder { color: var(--error); }
+
+.dropdown {
+    display: inline-block;
+}
+
+#submitDiv {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#submitDiv #submitBtn {
+    background-color: var(--primary);
+    border: none;
+    padding: 10px 100px 10px 100px;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+#submitDiv #submitBtn:hover {
+    background-color: var(--primary-hover);
+}
+
+#submitDiv #submitBtn:active {
+    background-color: var(--primary-active);
+}
+
+#submitDiv #submitBtn.disabled {
+    background-color: var(--primary-disabled);
+    color: rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
+#submitDiv #submitBtn.disabled:hover {
+    background-color: var(--primary-disabled);
+    color: rgba(0, 0, 0, 0.5);
+}
+
+#submitDiv #submitBtn.disabled:active {
+    background-color: var(--primary-disabled);
+}
+
+#submitOverlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+#submitOverlay #submitBox {
+    width: 25%;
+    margin-top: 15%;
+    display: inline-block;
+    background-color: #F1F1F1;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+#submitOverlay #submitBox p {
+    margin: 0;
+    padding: 10px;
+    background-color: var(--secondary);
+    cursor: default;
+}
+
+#submitOverlay #submitBox ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#submitOverlay #submitBox ul li {
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#submitOverlay #submitBox ul li:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#submitOverlay #submitBox ul li.active {
+    background-color: #9499c2;
+}
+
+#submitOverlay #submitBox ul li.active:hover {
+    background-color: #8388ad;
+}
+
+#submitOverlay #submitBox button {
+    background-color: var(--primary);
+    transition: all 0.3s;
+    border: none;
+    width: 50%;
+    margin: 0;
+    padding: 10px 0px 10px 0px;
+    bottom: 0;
+    float: left;
+}
+
+#submitOverlay #submitBox button:hover {
+    background-color: var(--primary-hover);
+}
+
+#submitOverlay #submitBox button:active {
+    background-color: var(--primary-active);
+}
+
+#submitOverlay #submitBox button.disabled {
+    background-color: var(--primary-disabled);
+    cursor: default;
+}
+
+#submitOverlay #submitBox button.disabled:hover {
+    background-color: var(--primary-disabled);
+}
+
+#submitOverlay #submitBox button.disabled:hover {
+    background-color: var(--primary-disabled);
+}

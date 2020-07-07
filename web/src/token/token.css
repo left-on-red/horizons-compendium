@@ -1,0 +1,80 @@
+.hidden {
+    display: none;
+}
+
+div#tokenContainer, div#initContainer, div#resultContainer {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    left: 0;
+    transition: all 0.45s;
+}
+
+div#tokenContainer {
+    opacity: 100;
+}
+
+div#initContainer, div#resultContainer {
+    opacity: 0;
+}
+
+div#resultContainer p {
+    text-align: center;
+    margin: 0;
+}
+
+div#resultContainer p#welcomeText {
+    font-size: 46px;
+}
+
+div#resultContainer p#idText {
+    font-size: 24px;
+    font-family: monospace;
+}
+
+div#resultContainer a {
+    display: inline-block;
+}
+
+input[type="text"] {
+    background-color: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #CCC;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    font-size: 20px;
+    transition: all 0.2s;
+    font-family: monospace;
+    width: 60%;
+    padding: 20px 20px 10px 20px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #8a827f;
+}
+
+div.error input[type="text"] {
+    border-color: #eb7575;
+    background-color: #f5d8d8;
+}
+
+div.error input[type="text"]::placeholder { color: #eb7575; }
+
+#errorText {
+    color: #eb7575;
+    display: none;
+}
+
+
+
+div.error p#hintText {
+    display: none;
+}
+
+div.error p#errorText {
+    display: block;
+}

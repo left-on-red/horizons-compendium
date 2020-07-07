@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HC > New Clothing</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://kit.fontawesome.com/53f17480e1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="clothing/clothing.css">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+</head>
+<body>
+    <main role="main">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div id="images">
+                        <div id="colorSelect" class="disabled">
+                            <i class="fas fa-chevron-left" onclick="shiftColor(-1)"></i>
+                            <p id="colorLabel"></p>
+                            <i class="fas fa-chevron-right" onclick="shiftColor(1)"></i>
+                        </div>
+                        <div id="catalogImage" class="disabled">
+                            <a>upload</a>
+                            <img src="/images/clothing/catalog/placeholder" id="disabledCatalogImage">
+                            <p id="catalogLabel">catalog</p>
+                        </div>
+                        <div id="wornImage" class="disabled">
+                            <a>upload</a>
+                            <img src="/images/clothing/worn/placeholder" id="disabledWornImage">
+                            <p id="wornLabel">worn</p>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="typeDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">type</button>
+                        <div class="dropdown-menu" id="typeDropdown" aria-labelledby="typeDropdownButton"></div>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <label class="check">
+                            <input type="checkbox" class="custom-control-input" id="cataloggable">
+                            <label class="custom-control-label" for="cataloggable">purchasable via catalog</label>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-7">
+                    <div>
+                        <input type="text" id="nameBox" autocomplete="off" placeholder="name">
+                    </div>
+                    <div>
+                        <input type="number" id="valueBox" autocomplete="off" placeholder="value" min="1">
+                        <input type="text" id="obtainedBox" autocomplete="off" placeholder="obtained via">
+                    </div>
+                    <div id="colors">
+                        <input type="text" id="colorsInput" type="text" autocomplete="off" placeholder="add color">
+                        <ul id="colorsList">
+                            <li id="addColorButton" class="hidden">add color</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="colorsAutocomplete"></div>
+
+        <div id="submitDiv"><button id="submitBtn" class="disabled" onclick="submit()">submit</button></div>
+
+        <div id="submitOverlay" class="hidden">
+            <div id="submitBox">
+                <p>select the default color</p>
+                <ul id="submitUl"></ul>
+
+                <button onclick="cancel()">cancel</button>
+                <button onclick="confirm()" id="confirmBtn">confirm</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+<!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../../../js/editor.js"></script>
+<script src="../../../js/request.js"></script>
+<script src="../../../js/form.js"></script>
+<script src="clothing/clothing.js"></script>
+<script src="clothing/components/colorList.js"></script>
+<script src="clothing/components/imageColorSelector.js"></script>
+<script src="clothing/components/images.js"></script>
+<script src="clothing/components/typesDropdown.js"></script>
+<script src="clothing/components/valueBoxes.js"></script>
+</html>
