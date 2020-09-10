@@ -6,9 +6,23 @@ let http = require('http');
 
 let types = require('./datatypes.json').json;
 
+let ensures = [
+    './api/data',
+    './api/history',
+    './images/avatars',
+    './images/clothing',
+    './images/clothing/catalog',
+    './images/clothing/worn',
+    './images/furniture',
+    './images/furniture/catalog',
+    './images/furniture/customs',
+    './images/furniture/placed',
+    './images/temp'
+]
+
+for (let e = 0; e < ensures.length; e++) { if (!fs.existsSync(ensures[e])) { fs.mkdirSync(ensures[e]) } }
+
 if (!fs.existsSync(`./api/auth.json`)) { fs.writeFileSync(`./auth.json`, '{}') }
-if (!fs.existsSync(`./api/data`)) { fs.mkdirSync(`./api/data`) }
-if (!fs.existsSync(`./api/history`)) { fs.mkdirSync(`./api/history`) }
 
 for (let t = 0; t < types.length; t++) {
     if (!fs.existsSync(`./api/data/${types[t]}`)) {
@@ -35,9 +49,7 @@ app.use(function (err, req, res, next) {
 
 let routes = ['api', 'images', 'web'];
 
-for (let r = 0; r < routes.length; r++) {
-    require(`./${routes[r]}/${routes[r]}.js`)(app);
-}
+for (let r = 0; r < routes.length; r++) { require(`./${routes[r]}/${routes[r]}.js`)(app) }
 
 let secured = false;
 

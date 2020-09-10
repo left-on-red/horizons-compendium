@@ -45,8 +45,10 @@ for (let v = 0; v < validationsFolder.length; v++) {
 
 // colors (clothing)
 for (let c in data.clothing) {
-    for (let i = 0; i < data.clothing[c].colors.length; i++) {
-        if (!colors.includes(data.clothing[c].colors[i])) { colors.push(data.clothing[c].colors[i]) }
+    if (c != '.gitkeep') {
+        for (let i = 0; i < data.clothing[c].colors.length; i++) {
+            if (!colors.includes(data.clothing[c].colors[i])) { colors.push(data.clothing[c].colors[i]) }
+        }
     }
 }
 

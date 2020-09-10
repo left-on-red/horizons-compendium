@@ -8,15 +8,10 @@ node_modules/
 api/data/
 api/history/
 
-images/avatars/*
-images/clothing/catalog/*
-images/clothing/worn/*
-images/furniture/catalog/*
-images/furniture/customs/*
-images/furniture/placed/*
-images/temp/*
-
-!/**/.gitkeep
+images/avatars
+images/clothing
+images/furniture
+images/temp
 
 auth.json
 server.crt
