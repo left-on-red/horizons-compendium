@@ -1,6 +1,6 @@
 # Horizons Compendium
 
-(this readme was intended for my Web Development teacher too properly review my final as this is what I turned in. it may be updated at a later point in time)
+(this readme was intended for my Web Development teacher too properly review my final as this is what I turned in. it may be updated at a later point in time. but this may also pertain to anyone who wants to try it out and take it for a spin)
 
 ### my mission
 my goal with Horizons Compendium is to create the ultimate Animal Crossing: New Horizons Wiki
